@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/analytics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Smart Waste Analytics</h1>
+        <nav class="nav-links">
+            <a href="/">Classification</a>
+            <a href="/analytics" class="active">Analytics</a>
+        </nav>
+    </header>
+
+    <div class="container analytics-section">
+        <div class="dashboard">
+            <div class="card">
+                <h2>Waste Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="distributionChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Weekly Trend</h2>
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="stats-grid">
+            <div class="stat-card metal">
+                <div class="stat-label">Metal Waste</div>
+                <div class="stat-value" id="metal-stat">0</div>
+                <div class="stat-label">items</div>
+            </div>
+            
+            <div class="stat-card glass">
+                <div class="stat-label">Glass Waste</div>
+                <div class="stat-value" id="glass-stat">0</div>
+                <div class="stat-label">items</div>
+            </div>
+            
+            <div class="stat-card paper">
+                <div class="stat-label">Paper Waste</div>
+                <div class="stat-value" id="paper-stat">0</div>
+                <div class="stat-label">items</div>
+            </div>
+            
+            <div class="stat-card plastic">
+                <div class="stat-label">Plastic Waste</div>
+                <div class="stat-value" id="plastic-stat">0</div>
+                <div class="stat-label">items</div>
+            </div>
+        </div>
+        
+        <div class="last-updated" id="last-updated">
+            Last updated: Never
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <script src="/static/js/analytics.js"></script>
+</body>
+</html>

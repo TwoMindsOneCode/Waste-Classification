@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Waste Classification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/classification.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Smart Waste Management</h1>
+        <nav class="nav-links">
+            <a href="/" class="active">Classification</a>
+            <a href="/analytics">Analytics</a>
+        </nav>
+    </header>
+
+    <div class="container classification-section">
+        <p class="subtitle">AI-powered recycling system with real-time waste classification</p>
+        
+        <div class="bins-grid">
+            <div class="bin" id="metal-bin" role="region" aria-label="Metal waste bin" aria-live="polite">
+                <div class="bin-container">
+                    <div class="bin-count" aria-label="Current count: 0">0</div>
+                    <div class="bin-lid">
+                        <div class="lid-handle"></div>
+                    </div>
+                    <div class="bin-body">
+                        <div class="bin-fill" style="height: 0%">
+                            <span class="fill-percentage">0%</span>
+                        </div>
+                        <div class="trash-item" id="metal-item"></div>
+                    </div>
+                    <div class="bin-base"></div>
+                </div>
+                <div class="bin-label">Metal</div>
+            </div>
+            
+            <div class="bin" id="glass-bin" role="region" aria-label="Glass waste bin" aria-live="polite">
+                <div class="bin-container">
+                    <div class="bin-count" aria-label="Current count: 0">0</div>
+                    <div class="bin-lid">
+                        <div class="lid-handle"></div>
+                    </div>
+                    <div class="bin-body">
+                        <div class="bin-fill" style="height: 0%">
+                            <span class="fill-percentage">0%</span>
+                        </div>
+                        <div class="trash-item" id="glass-item"></div>
+                    </div>
+                    <div class="bin-base"></div>
+                </div>
+                <div class="bin-label">Glass</div>
+            </div>
+            
+            <div class="bin" id="paper-bin" role="region" aria-label="Paper waste bin" aria-live="polite">
+                <div class="bin-container">
+                    <div class="bin-count" aria-label="Current count: 0">0</div>
+                    <div class="bin-lid">
+                        <div class="lid-handle"></div>
+                    </div>
+                    <div class="bin-body">
+                        <div class="bin-fill" style="height: 0%">
+                            <span class="fill-percentage">0%</span>
+                        </div>
+                        <div class="trash-item" id="paper-item"></div>
+                    </div>
+                    <div class="bin-base"></div>
+                </div>
+                <div class="bin-label">Paper</div>
+            </div>
+            
+            <div class="bin" id="plastic-bin" role="region" aria-label="Plastic waste bin" aria-live="polite">
+                <div class="bin-container">
+                    <div class="bin-count" aria-label="Current count: 0">0</div>
+                    <div class="bin-lid">
+                        <div class="lid-handle"></div>
+                    </div>
+                    <div class="bin-body">
+                        <div class="bin-fill" style="height: 0%">
+                            <span class="fill-percentage">0%</span>
+                        </div>
+                        <div class="trash-item" id="plastic-item"></div>
+                    </div>
+                    <div class="bin-base"></div>
+                </div>
+                <div class="bin-label">Plastic</div>
+            </div>
+        </div>
+        
+        <div class="control-panel">
+            <div class="control-section">
+                <h3><i class="fas fa-image"></i> Single Image Processing</h3>
+                <input type="file" id="file-input" accept="image/*">
+                <div class="btn-group">
+                    <button class="btn btn-secondary" id="choose-photo-btn">
+                        <i class="fas fa-folder-open"></i> Select Image
+                    </button>
+                    <button class="btn btn-primary" id="detect-btn">
+                        <i class="fas fa-search"></i> Classify & Process
+                    </button>
+                </div>
+                <div class="file-info" id="selected-photo">
+                    <i class="fas fa-info-circle"></i> No image selected
+                </div>
+                <div class="alert" id="warning-message">
+                    <i class="fas fa-exclamation-triangle"></i> This waste item has already been processed!
+                </div>
+            </div>
+            
+            <div class="control-section">
+                <h3><i class="fas fa-folder"></i> Batch Processing</h3>
+                <input type="file" id="folder-input" webkitdirectory directory multiple style="display: none;">
+                <div class="btn-group">
+                    <button class="btn btn-secondary" id="choose-folder-btn">
+                        <i class="fas fa-folder"></i> Select Folder
+                    </button>
+                    <button class="btn btn-primary" id="start-processing-btn" disabled>
+                        <i class="fas fa-play"></i> Start Processing
+                    </button>
+                    <button class="btn btn-danger" id="reset-bins-btn">
+                        <i class="fas fa-trash"></i> Reset Bins
+                    </button>
+                </div>
+                <div class="file-info" id="selected-folder">
+                    <i class="fas fa-info-circle"></i> No folder selected
+                </div>
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span id="current-file">Ready</span>
+                        <span id="progress-text">0/0</span>
+                    </div>
+                    <progress id="processing-progress" value="0" max="100"></progress>
+                </div>
+            </div>
+        </div>
+        
+        <div id="probabilities-display" class="probabilities-container"></div>
+    </div>
+
+    <script src="/static/js/classification.js"></script>
+</body>
+</html>
