@@ -14,7 +14,7 @@ After training, the best model is saved and used in a **Flask web app**. This ap
   </a>
 </p>
 
-### [Watch this video on YouTube](https://youtu.be/OhcWuUA0-eI)
+### [Watch project video on YouTube](https://youtu.be/OhcWuUA0-eI)
 
 ---
 
